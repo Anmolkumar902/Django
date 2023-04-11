@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 rounded mx-auto border pt-4">
+          <div class="text-center col">
+            
+            <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Shopping_cart_with_food_clip_art_2.svg/307px-Shopping_cart_with_food_clip_art_2.svg.png" alt=""
+            class="" style="height: 150px;">
+        <!-- <hr> -->
+        <div class="display-8">Create An Account</div>
+        <hr>
+        </div>
+        <form action ="/signup"  method="POST">
+            {% csrf_token %}
+
+            {% if error %}
+
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+            {% endif %}
+             <!--firstname-->
+              <div class="form-group">
+                <label for="">First Name</label>
+                 <input type="text" name="firstname" id="" value="{{values.first_name}}" class="form-control form-control-sm" placeholder="">
+              </div>
+
+              <!--Last Name-->
+              <div class="form-group">
+                <label for="">Last Name</label>
+                <input type="text" name="lastname" id="" value="{{values.last_name}}" class="form-control form-control-sm" >
+              </div>
+               
+            <!--for phone number-->
+
+            <div class="form-group">
+                <label for="">Phone</label>
+                <input type="text " name="phone" id="" value="{{values.phone}}" class="form-control form-control-sm" placeholder="9875641239">
+            </div>
+               
+
+             
+            <!-- For Email-->
+            <div class="form-group">
+              <label for="">Email</label>
+              <input required type="email" class="form-control-sm form-control" name="email" id="" value="{{values.email}}"  placeholder="example@gmail.com">
+            </div>
+
+            <!-- For Password -->
+            <div class="form-group">
+              <label for="">Password</label>
+              <input type="Password" class="form-control form-control-sm" name="password" id=""  placeholder="********">
+            </div>
+
+            <!--For Button-->
+            <hr>
+            <div class="form-group">
+              <input class="btn btn-sm btn-info" type="submit" value="Create An Account">
+            </div>
+          </from>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
